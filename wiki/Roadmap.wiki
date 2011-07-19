@@ -1,0 +1,53 @@
+#summary This is the roadmap for PoolGame.
+
+= Introduction =
+
+This is the roadmap for PoolGame.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+= V 0.1.x =
+
+*V 0.1.0:*
+  * Create community project (GoogleCode)
+  * Repository
+  * Wiki
+     * Roadmap
+  * Issue tracker
+  * Releases
+
+= V 0.2.x =
+
+*V 0.2.0:*
+  * Basic objects
+     * Board
+     * Balls
+
+= V 0.3.x =
+
+*V 0.3.0:*
+  * Basic shooting
+
+= V 0.4.x =
+
+*V 0.4.0:*
+  * Basic ball/hole detection
+
+= V 0.5.x =
+
+*V 0.5.0:*
+  * Basic menu's
+
+= V 0.6.x =
+
+*V 0.6.0:*
+  * Basic game logic
+
+
+The content of the releases are subject to change and can be changed without notice.

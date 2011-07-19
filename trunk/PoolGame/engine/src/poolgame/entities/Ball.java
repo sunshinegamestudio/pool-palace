@@ -45,8 +45,27 @@ public class Ball extends Entity {
 
         // Create Pool Ball !!!!!!!!!!!!!!!
         // Add a physics sphere to the world
-        Node physicsSphere = PhysicsTestHelper.createPhysicsTestNode(assetManager, new SphereCollisionShape(1), 1);
-        physicsSphere.getControl(RigidBodyControl.class).setPhysicsLocation(new Vector3f(3, 6, 0));
+      /** This method creates one individual physical cannon ball.
+       * By defaul, the ball is accelerated and flies
+       * from the camera position in the camera direction.*/
+        /** Create a pool ball geometry and attach to scene graph. */
+        Geometry ball_geo = new Geometry("pool ball", sphere);
+        ball_geo.setMaterial(stone_mat);
+        rootNode.attachChild(ball_geo);
+        /** Position the cannon ball and activate shadows */
+        ball_geo.setLocalTranslation(cam.getLocation());
+        ball_geo.setShadowMode(ShadowMode.CastAndReceive);
+        /** Make the ball physcial with a mass > 0.0f */
+        ball_phy = new RigidBodyControl(1f);
+        /** Add physical ball to physics space. */
+        ball_geo.addControl(ball_phy);
+        bulletAppState.getPhysicsSpace().add(ball_phy);
+        /** Accelerate the physcial ball to shoot it. */
+        ball_phy.setLinearVelocity(cam.getDirection().mult(25));        
+        
+        //Node physicsSphere = PhysicsTestHelper.createPhysicsTestNode(assetManager, new SphereCollisionShape(1), 1);
+        //physicsSphere.getControl(RigidBodyControl.class).setPhysicsLocation(new Vector3f(3, 6, 0));
+
         getParent().attachChild(physicsSphere);
         getPhysicsSpace().add(physicsSphere);
     }

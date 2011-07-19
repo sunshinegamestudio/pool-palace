@@ -17,6 +17,8 @@ Add your content here.  Format your content with:
 *V 0.1.0:*
   * Create community project (GoogleCode)
   * Repository
+     * Source code
+     * Tags
   * Wiki
      * Roadmap
   * Issue tracker

@@ -1,4 +1,4 @@
-#summary This is the roadmap for PoolGame.
+#summary This is the roadmap for Pool Palace.
 
 = Introduction =
 

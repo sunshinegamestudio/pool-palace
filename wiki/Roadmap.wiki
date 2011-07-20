@@ -15,14 +15,14 @@ Add your content here.  Format your content with:
 = V 0.1.x =
 
 *V 0.1.0:*
-  * Create community project (GoogleCode)
+  * Create community project (GoogleCode) _(done)_
   * Repository
-     * Source code
+     * Source code _(done)_
      * Tags
   * Wiki
-     * Roadmap
-  * Issue tracker
-  * Releases
+     * Roadmap _(done)_
+  * Issue tracker _(done)_
+  * Releases _(done)_
 
 = V 0.2.x =
 

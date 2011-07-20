@@ -14,7 +14,7 @@ Add your content here.  Format your content with:
 
 = V 0.1.x =
 
-*V 0.1.0 (done):*
+*V 0.1.0:* _(done)_
   * Create community project (GoogleCode) _(done)_
   * Repository
      * Source code _(done)_

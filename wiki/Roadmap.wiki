@@ -30,6 +30,7 @@ Add your content here.  Format your content with:
   * Basic objects
      * Board
      * Balls
+     * Cue
 
 = V 0.3.x =
 

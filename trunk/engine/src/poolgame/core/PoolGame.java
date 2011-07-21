@@ -84,7 +84,7 @@ public class PoolGame extends Application {
 
 		// Create the States
                 bulletAppState = new BulletAppState();
-                bulletAppState.getPhysicsSpace().enableDebug(assetManager);
+                //bulletAppState.getPhysicsSpace().enableDebug(assetManager);
                 
                 ms = new MainMenuState(this);
 		te = new GameState(this);

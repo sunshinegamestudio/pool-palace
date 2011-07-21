@@ -60,12 +60,13 @@ public class GameState extends AbstractAppState implements ActionListener {
 
     private Sun sun;
     //private Sky sky;
-    private Terrain terrain;
+    private Room room;
+    private Ball ball;
     //private Terrain_node terrain_node;
     //private CarPlayer player;
     //private SimpleCarPlayer player;
-    private CharacterPlayer player;
-    private SimpleEnemy simpleEnemy;
+    //private CharacterPlayer player;
+    //private SimpleEnemy simpleEnemy;
 
     boolean left = false;
     boolean right = false;
@@ -95,6 +96,7 @@ public class GameState extends AbstractAppState implements ActionListener {
 
             //player.resetControls();
 
+            /*
             if (name.equals("Lefts")) {
                 if (value)
                     { player.left(true);}
@@ -121,33 +123,8 @@ public class GameState extends AbstractAppState implements ActionListener {
                 else
                     { player.jump(false);}
             }
-
-            /*
-             * For Car
-            if (name.equals("Lefts")) {
-                if (value)
-                    { player.steer(.1f);}
-                else
-                    { player.steer(-.1f);}
-            } else if (name.equals("Rights")) {
-                if (value)
-                    { player.steer(-.1f);}
-                else
-                    { player.steer(.1f);}
-            } else if (name.equals("Ups")) {
-                if (value)
-                    { player.accelerate(-800);}
-                else
-                    { player.accelerate(800);}
-            } else if (name.equals("Downs")) {
-                if (value)
-                    { player.brake(800f);}
-                else
-                    { player.brake(-0f);}
-            } else if (name.equals("Jumps")) {
-                //player.getNode().jump();
-            }
-             */
+            * Do stick movement ???
+            */
     }
 
     private void setupKeys() {
@@ -207,8 +184,8 @@ public class GameState extends AbstractAppState implements ActionListener {
          */
 
         // simple update and root node
-        player.update(tpf);
-        simpleEnemy.update(tpf);
+        //player.update(tpf);
+        //simpleEnemy.update(tpf);
 
         rootNode.updateLogicalState(tpf);
         guiNode.updateLogicalState(tpf);
@@ -216,6 +193,7 @@ public class GameState extends AbstractAppState implements ActionListener {
         guiNode.updateGeometricState();
 
         // Place the camera behind the player
+        /*
         Vector3f direction = player.getNode().getLocalRotation().getRotationColumn(2);
         Vector3f direction2 = player.getNode().getLocalRotation().getRotationColumn(1);
 
@@ -227,6 +205,8 @@ public class GameState extends AbstractAppState implements ActionListener {
 
         game.getCamera().setLocation(camLocation);
         game.getCamera().lookAt(player.getNode().getWorldTranslation(), Vector3f.UNIT_Y);
+        * Look behind ball ???
+        */
     }
     
     
@@ -265,12 +245,13 @@ public class GameState extends AbstractAppState implements ActionListener {
 
         sun = new Sun(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
-        terrain = new Terrain(game.getAssetManager(), rootNode, game.getPhysicsSpace());
+        room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //terrain_node = new Terrain_node(game.getCamera(), game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new CarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new SimpleCarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
-        player = new CharacterPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera());
-        simpleEnemy = new SimpleEnemy(player, game.getAssetManager(), rootNode, game.getPhysicsSpace());
+        //player = new CharacterPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera());
+        //simpleEnemy = new SimpleEnemy(player, game.getAssetManager(), rootNode, game.getPhysicsSpace());
 
         /*
         if (game.getInputManager() != null){

@@ -43,6 +43,7 @@ import com.jme3.scene.Spatial.CullHint;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
 
+import java.util.List;
 import poolgame.core.PoolGame;
 import poolgame.entities.*;
 
@@ -55,13 +56,14 @@ public class GameState extends AbstractAppState implements ActionListener {
     protected BitmapText menuText;
     protected BitmapFont guiFont;
 
-    // protected FlyByCamera flyCam;
+    protected FlyByCamera flyCam;
     // protected ChaseCamera chaseCam;
 
     private Sun sun;
     //private Sky sky;
     private Room room;
     private Ball ball;
+    private List ballList;
     //private Terrain_node terrain_node;
     //private CarPlayer player;
     //private SimpleCarPlayer player;
@@ -217,12 +219,9 @@ public class GameState extends AbstractAppState implements ActionListener {
         loadText();
 
         if (game.getInputManager() != null){
-            /*
             flyCam = new FlyByCamera(game.getCamera());
             flyCam.setMoveSpeed(5f);
             flyCam.registerWithInput(game.getInputManager());
-             * Replaced with ChaseCam
-             */
             //chaseCam = new ChaseCamera(game.getCamera(), player.getNode(), game.getInputManager());
 
             game.getInputManager().addMapping("CARGAME_Exit", new KeyTrigger(KeyInput.KEY_ESCAPE));
@@ -246,7 +245,27 @@ public class GameState extends AbstractAppState implements ActionListener {
         sun = new Sun(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace());
+        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(0, 100, 0));
+        /*
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(10, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(20, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(30, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(40, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(50, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(60, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(70, 100, 0));
+        ballList.add(ball);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(80, 100, 0));
+        ballList.add(ball);
+        * Fix NullPointerException
+        */
         //terrain_node = new Terrain_node(game.getCamera(), game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new CarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new SimpleCarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
@@ -263,7 +282,7 @@ public class GameState extends AbstractAppState implements ActionListener {
         game.getInputManager().addListener(this, "CARGAME_Exit",
                 "CARGAME_LoadMenu");
         
-        // if(flyCam != null) flyCam.setEnabled(true);
+        if(flyCam != null) flyCam.setEnabled(true);
         // if(chaseCam != null) chaseCam.setEnabled(true);
     	
         game.getViewPort().attachScene(rootNode);
@@ -277,7 +296,7 @@ public class GameState extends AbstractAppState implements ActionListener {
         guiNode.detachAllChildren();
 
     	game.getInputManager().removeListener(this);
-        // if(flyCam != null) flyCam.setEnabled(false);
+        if(flyCam != null) flyCam.setEnabled(false);
         // if(chaseCam != null) chaseCam.setEnabled(false);
     	
         game.getViewPort().detachScene(rootNode);

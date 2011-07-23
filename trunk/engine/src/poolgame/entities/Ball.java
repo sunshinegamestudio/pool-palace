@@ -47,7 +47,7 @@ public class Ball extends Entity {
     private Material stone_mat;
     private Sphere sphere;
 
-    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace) {
+    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Vector3f startPos) {
         super(assetManager, parent, physicsSpace);
 
         //com.jme3.terrain
@@ -75,7 +75,8 @@ public class Ball extends Entity {
 
         /** Position the cannon ball and activate shadows */
         //ball_geo.setLocalTranslation(cam.getLocation());
-        ball_geo.setLocalTranslation(0, 0, 0);
+        //ball_geo.setLocalTranslation(0, 0, 0);
+        ball_geo.setLocalTranslation(startPos);
         ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
         /** Make the ball physcial with a mass > 0.0f */

@@ -62,6 +62,7 @@ public class GameState extends AbstractAppState implements ActionListener {
     private Sun sun;
     //private Sky sky;
     private Room room;
+    private Hole hole;
     private Ball ball;
     private List ballList;
     //private Terrain_node terrain_node;
@@ -245,6 +246,7 @@ public class GameState extends AbstractAppState implements ActionListener {
         sun = new Sun(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
+        hole = new Hole(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(0, 100, 0));
         /*
         ballList.add(ball);

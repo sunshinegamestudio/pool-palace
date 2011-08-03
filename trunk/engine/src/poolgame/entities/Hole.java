@@ -49,12 +49,12 @@ public class Hole extends Entity {
     private Spatial hole_geo;
     private BallInHoleDetectionControl ballInHoleDetectionControl;
 
-    public Hole(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace) {
+    public Hole(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, int index) {
         super(assetManager, parent, physicsSpace);
 
         ballInHoleDetectionControl = new BallInHoleDetectionControl();
         
-        hole_geo = getParent().getChild("hole_1-ogremesh");
+        hole_geo = getParent().getChild("hole_" + index + "1-ogremesh");
         if(hole_geo != null)    {
             hole_geo.addControl(ballInHoleDetectionControl);
         }

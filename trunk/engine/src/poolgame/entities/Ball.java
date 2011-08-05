@@ -63,7 +63,7 @@ public class Ball extends Entity {
         sphere.setTextureMode(TextureMode.Projected);
         
         stone_mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        TextureKey key2 = new TextureKey("Textures/ball_1/base.png");
+        TextureKey key2 = new TextureKey("Textures/ball_0/base.png");
         key2.setGenerateMips(true);
         Texture tex2 = assetManager.loadTexture(key2);
         stone_mat.setTexture("ColorMap", tex2);

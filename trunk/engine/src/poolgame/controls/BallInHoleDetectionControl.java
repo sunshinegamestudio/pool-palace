@@ -16,9 +16,10 @@ import com.jme3.scene.control.Control;
  * @author Vortex
  */
 
-//public class BallInHoleDetectionControl extends RigidBodyControl implements PhysicsTickListener, PhysicsCollisionListener   {
-public class BallInHoleDetectionControl extends Control implements PhysicsTickListener, PhysicsCollisionListener   {
+public class BallInHoleDetectionControl extends RigidBodyControl implements PhysicsTickListener, PhysicsCollisionListener   {
+//public class BallInHoleDetectionControl extends Control implements PhysicsTickListener, PhysicsCollisionListener   {
     public void BallInHoleDetectionControl()    {
+        super.setMass(0);
         getPhysicsSpace().addTickListener(this);
         getPhysicsSpace().addCollisionListener(this);
     }

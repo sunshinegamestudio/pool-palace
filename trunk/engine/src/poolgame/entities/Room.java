@@ -41,7 +41,7 @@ public class Room extends Entity {
         //com.jme3.terrain
         //BufferGeomap
 
-        Node room = (Node) assetManager.loadModel("Scenes/room_1/room_1.j3o");
+        Node room = (Node) assetManager.loadModel("Scenes/room_0/room_0.j3o");
 
         room.setLocalTranslation(new Vector3f(0,-1,10));
         room.updateGeometricState();

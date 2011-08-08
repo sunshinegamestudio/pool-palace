@@ -44,6 +44,7 @@ import com.jme3.texture.Texture;
  */
 public class Ball extends Entity {
     private RigidBodyControl ball_phy;
+    private SphereCollisionShape sphereCollisionShape;
     private Material stone_mat;
     private Sphere sphere;
 
@@ -80,7 +81,8 @@ public class Ball extends Entity {
         ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
         /** Make the ball physcial with a mass > 0.0f */
-        ball_phy = new RigidBodyControl(1f);
+        sphereCollisionShape = new SphereCollisionShape(32);
+        ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
         
         /** Add physical ball to physics space. */
         ball_geo.addControl(ball_phy);

@@ -8,7 +8,9 @@ import com.jme3.bullet.PhysicsSpace;
 import com.jme3.bullet.PhysicsTickListener;
 import com.jme3.bullet.collision.PhysicsCollisionEvent;
 import com.jme3.bullet.collision.PhysicsCollisionListener;
+import com.jme3.bullet.collision.shapes.MeshCollisionShape;
 import com.jme3.bullet.control.RigidBodyControl;
+import com.jme3.scene.Mesh;
 import com.jme3.scene.control.Control;
 
 /**
@@ -18,8 +20,14 @@ import com.jme3.scene.control.Control;
 
 public class BallInHoleDetectionControl extends RigidBodyControl implements PhysicsTickListener, PhysicsCollisionListener   {
 //public class BallInHoleDetectionControl extends Control implements PhysicsTickListener, PhysicsCollisionListener   {
-    public void BallInHoleDetectionControl()    {
+    
+    private MeshCollisionShape meshCollisionShape;
+    
+    public void BallInHoleDetectionControl(Mesh hole)    {
+        meshCollisionShape = new MeshCollisionShape(hole);
+        
         super.setMass(0);
+        super.setCollisionShape(collisionShape);
         getPhysicsSpace().addTickListener(this);
         getPhysicsSpace().addCollisionListener(this);
     }

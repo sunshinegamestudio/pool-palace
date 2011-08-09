@@ -43,7 +43,8 @@ public class Room extends Entity {
 
         Node room = (Node) assetManager.loadModel("Scenes/room_0/room_0.j3o");
 
-        room.setLocalTranslation(new Vector3f(0,-1,10));
+        //room.setLocalTranslation(new Vector3f(0,-1,10));
+        room.setLocalTranslation(new Vector3f(0,-1,0));
         room.updateGeometricState();
 
         //Material mat3 = new Material(assetManager, "Common/MatDefs/Misc/WireColor.j3md");

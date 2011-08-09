@@ -35,6 +35,7 @@ import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.material.RenderState;
 import com.jme3.math.Vector3f;
+import com.jme3.renderer.Camera;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.queue.RenderQueue.Bucket;
 import com.jme3.scene.Geometry;
@@ -249,7 +250,8 @@ public class GameState extends AbstractAppState implements ActionListener {
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         hole = new Hole(game.getAssetManager(), rootNode, game.getPhysicsSpace(), 0);
-        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(0, 100, 0));
+        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0));
+
         /*
         ballList.add(ball);
         ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(10, 100, 0));

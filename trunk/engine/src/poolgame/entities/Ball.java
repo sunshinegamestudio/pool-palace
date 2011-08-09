@@ -30,6 +30,7 @@ import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.bullet.util.CollisionShapeFactory;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
+import com.jme3.renderer.Camera;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
@@ -47,8 +48,9 @@ public class Ball extends Entity {
     private SphereCollisionShape sphereCollisionShape;
     private Material stone_mat;
     private Sphere sphere;
+    private Camera cam;
 
-    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Vector3f startPos) {
+    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Camera cam, Vector3f startPos) {
         super(assetManager, parent, physicsSpace);
 
         //com.jme3.terrain
@@ -60,6 +62,8 @@ public class Ball extends Entity {
        * By defaul, the ball is accelerated and flies
        * from the camera position in the camera direction.*/
         /** Initialize the cannon ball geometry */
+        this.cam = cam;
+        
         sphere = new Sphere(32, 32, 0.4f, true, false);
         sphere.setTextureMode(TextureMode.Projected);
         
@@ -81,15 +85,17 @@ public class Ball extends Entity {
         ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
         /** Make the ball physcial with a mass > 0.0f */
-        sphereCollisionShape = new SphereCollisionShape(32);
+        sphereCollisionShape = new SphereCollisionShape(16);
         ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
         
         /** Add physical ball to physics space. */
         ball_geo.addControl(ball_phy);
-        getPhysicsSpace().getPhysicsSpace().add(ball_phy);
-
+        getPhysicsSpace().add(ball_phy);
+    }
+    
+    public void shoot() {
         /** Accelerate the physcial ball to shoot it. */
-        //ball_phy.setLinearVelocity(cam.getDirection().mult(25));        
+        ball_phy.setLinearVelocity(cam.getDirection().mult(25));        
     }
 
 }

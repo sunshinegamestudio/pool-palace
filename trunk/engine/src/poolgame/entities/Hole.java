@@ -55,7 +55,7 @@ public class Hole extends Entity {
         
         hole_geo = getParent().getChild("hole_" + index + "1-ogremesh");
         if(hole_geo != null)    {
-            ballInHoleDetectionControl = new BallInHoleDetectionControl(hole_geo);
+            //ballInHoleDetectionControl = new BallInHoleDetectionControl(hole_geo);
             hole_geo.addControl(ballInHoleDetectionControl);
         }
     }

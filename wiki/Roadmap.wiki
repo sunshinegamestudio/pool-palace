@@ -29,6 +29,7 @@ Add your content here.  Format your content with:
 *V 0.2.0:*
   * Basic objects
      * Board
+     * Holes
      * Balls
      * Cue
 
@@ -40,6 +41,7 @@ Add your content here.  Format your content with:
 = V 0.4.x =
 
 *V 0.4.0:*
+  * Detailed hole object
   * Basic ball/hole detection
 
 = V 0.5.x =

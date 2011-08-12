@@ -19,7 +19,22 @@ Template:
      * Mesh (SceneComposer/Runtime)
 
 Game Objects:
-  * Spatial: Hole (SceneComposer/Runtime)
-     * Control: RigidBodyControl (SceneComposer/Runtime)
-        * CollisionShape: MeshCollisionShape (SceneComposer/Runtime)
-     * Mesh: ??? (SceneComposer/Runtime)
+  * Spatial: *Table* (SceneComposer)
+     * Control: PhysicsControl (SceneComposer)
+        * CollisionShape: MeshCollisionShape (SceneComposer)
+     * Mesh: ??? (SceneComposer)
+
+  * Spatial: *Hole* (SceneComposer)
+     * Control: RigidBodyControl (Runtime)
+        * CollisionShape: MeshCollisionShape (Runtime)
+     * Mesh: ??? (SceneComposer)
+
+  * Spatial: *Cue* (SceneComposer)
+     * Control: PhysicsControl (SceneComposer)
+        * CollisionShape: MeshCollisionShape (SceneComposer)
+     * Mesh: ??? (SceneComposer)
+
+  * Spatial: *Ball* (SceneComposer)
+     * Control: RigidBodyControl (SceneComposer)
+        * CollisionShape: SphereCollisionShape (Runtime)
+     * Mesh: ??? (SceneComposer)

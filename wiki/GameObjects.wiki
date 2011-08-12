@@ -25,7 +25,7 @@ Game Objects:
      * Mesh: ??? (SceneComposer)
 
   * Spatial: *Hole* (SceneComposer)
-     * Control: RigidBodyControl (Runtime)
+     * Control: BallInHoleDetection->*RigidBodyControl+GhostControl (???)* (Runtime)
         * CollisionShape: MeshCollisionShape (Runtime)
      * Mesh: ??? (SceneComposer)
 

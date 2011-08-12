@@ -35,6 +35,6 @@ Game Objects:
      * Mesh: ??? (SceneComposer)
 
   * Spatial: *Ball* (SceneComposer)
-     * Control: RigidBodyControl (SceneComposer)
+     * Control: RigidBodyControl (Runtime)
         * CollisionShape: SphereCollisionShape (Runtime)
      * Mesh: ??? (SceneComposer)

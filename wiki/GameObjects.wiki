@@ -15,7 +15,7 @@ Add your content here.  Format your content with:
 Template:
   * Spatial (SceneComposer/Runtime)
      * Control (SceneComposer/Runtime)
-        * <CollsionShape> (SceneComposer/Runtime)
+        * CollsionShape (SceneComposer/Runtime)
      * Mesh (SceneComposer/Runtime)
 
 Game Objects:

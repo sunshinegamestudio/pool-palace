@@ -1,0 +1,25 @@
+#summary These are the Game Objects of Pool Palace.
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+Template:
+  * Spatial (SceneComposer/Runtime)
+     * Control (SceneComposer/Runtime)
+        * <CollsionShape> (SceneComposer/Runtime)
+     * Mesh (SceneComposer/Runtime)
+
+Game Objects:
+  * Spatial: Hole (SceneComposer/Runtime)
+     * Control: RigidBodyControl (SceneComposer/Runtime)
+        * MeshCollisionShape (SceneComposer/Runtime)
+     * Mesh: ??? (SceneComposer/Runtime)

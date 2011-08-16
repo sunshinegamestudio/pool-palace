@@ -46,11 +46,12 @@ import com.jme3.texture.Texture;
 public class Ball extends Entity {
     private RigidBodyControl ball_phy;
     private SphereCollisionShape sphereCollisionShape;
+    private Spatial ball_geo;
     private Material stone_mat;
     private Sphere sphere;
     private Camera cam;
 
-    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Camera cam, Vector3f startPos) {
+    public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Camera cam, Vector3f startPos, int index) {
         super(assetManager, parent, physicsSpace);
 
         //com.jme3.terrain
@@ -74,14 +75,20 @@ public class Ball extends Entity {
         stone_mat.setTexture("ColorMap", tex2);
         
         /** Create a pool ball geometry and attach to scene graph. */
-        Geometry ball_geo = new Geometry("pool ball", sphere);
-        ball_geo.setMaterial(stone_mat);
-        getParent().attachChild(ball_geo);
+        //Geometry ball_geo = new Geometry("pool ball", sphere);
+        //ball_geo.setMaterial(stone_mat);
+        //getParent().attachChild(ball_geo);
 
         /** Position the cannon ball and activate shadows */
         //ball_geo.setLocalTranslation(cam.getLocation());
         //ball_geo.setLocalTranslation(0, 0, 0);
-        ball_geo.setLocalTranslation(startPos);
+        ball_geo = getParent().getChild("ball_" + index);
+        if(ball_geo != null)    {
+            //ballInHoleDetectionControl = new BallInHoleDetectionControl(hole_geo);
+            //ball_geo.addControl(ballInHoleDetectionControl);
+        }
+
+        //ball_geo.setLocalTranslation(startPos);
         ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
         /** Make the ball physcial with a mass > 0.0f */

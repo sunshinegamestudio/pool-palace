@@ -250,7 +250,7 @@ public class GameState extends AbstractAppState implements ActionListener {
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         hole = new Hole(game.getAssetManager(), rootNode, game.getPhysicsSpace(), 0);
-        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0));
+        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
 
         /*
         ballList.add(ball);

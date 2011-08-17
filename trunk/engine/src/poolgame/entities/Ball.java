@@ -47,7 +47,7 @@ public class Ball extends Entity {
     private RigidBodyControl ball_phy;
     private SphereCollisionShape sphereCollisionShape;
     private Spatial ball_geo;
-    private Material stone_mat;
+    private Material ball_mat;
     private Sphere sphere;
     private Camera cam;
 
@@ -65,39 +65,30 @@ public class Ball extends Entity {
         /** Initialize the cannon ball geometry */
         this.cam = cam;
         
-        sphere = new Sphere(32, 32, 0.4f, true, false);
-        sphere.setTextureMode(TextureMode.Projected);
-        
-        stone_mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        TextureKey key2 = new TextureKey("Textures/ball_0/base.png");
-        key2.setGenerateMips(true);
-        Texture tex2 = assetManager.loadTexture(key2);
-        stone_mat.setTexture("ColorMap", tex2);
-        
-        /** Create a pool ball geometry and attach to scene graph. */
-        //Geometry ball_geo = new Geometry("pool ball", sphere);
-        //ball_geo.setMaterial(stone_mat);
-        //getParent().attachChild(ball_geo);
-
-        /** Position the cannon ball and activate shadows */
-        //ball_geo.setLocalTranslation(cam.getLocation());
-        //ball_geo.setLocalTranslation(0, 0, 0);
         ball_geo = getParent().getChild("ball_" + index);
         if(ball_geo != null)    {
-            //ballInHoleDetectionControl = new BallInHoleDetectionControl(hole_geo);
-            //ball_geo.addControl(ballInHoleDetectionControl);
+            sphere = new Sphere(32, 32, 0.4f, true, false);
+            sphere.setTextureMode(TextureMode.Projected);
+
+            ball_mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+            TextureKey key2 = new TextureKey("Textures/ball_0/base.png");
+            key2.setGenerateMips(true);
+            Texture tex2 = assetManager.loadTexture(key2);
+            ball_mat.setTexture("ColorMap", tex2);
+
+            /** Set ball material and activate shadows */
+            ball_geo.setMaterial(ball_mat);
+            ball_geo.setShadowMode(ShadowMode.CastAndReceive);
+
+            /** Make the ball physcial with a mass > 0.0f */
+            sphereCollisionShape = new SphereCollisionShape(1);
+            ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
+
+            /** Add physical ball to physics space. */
+            ball_geo.addControl(ball_phy);
+            getPhysicsSpace().add(ball_phy);
         }
 
-        //ball_geo.setLocalTranslation(startPos);
-        ball_geo.setShadowMode(ShadowMode.CastAndReceive);
-
-        /** Make the ball physcial with a mass > 0.0f */
-        sphereCollisionShape = new SphereCollisionShape(16);
-        ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
-        
-        /** Add physical ball to physics space. */
-        ball_geo.addControl(ball_phy);
-        getPhysicsSpace().add(ball_phy);
     }
     
     public void shoot() {

@@ -53,10 +53,10 @@ public class Hole extends Entity {
         super(assetManager, parent, physicsSpace);
 
         
-        hole_geo = getParent().getChild("hole_" + index + "1-ogremesh");
+        hole_geo = getParent().getChild("hole_" + index + "-ogremesh");
         if(hole_geo != null)    {
             //ballInHoleDetectionControl = new BallInHoleDetectionControl(hole_geo);
-            hole_geo.addControl(ballInHoleDetectionControl);
+            //hole_geo.addControl(ballInHoleDetectionControl);
         }
     }
 

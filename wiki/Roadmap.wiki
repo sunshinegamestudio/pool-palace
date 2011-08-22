@@ -27,11 +27,13 @@ Add your content here.  Format your content with:
 = V 0.2.x =
 
 *V 0.2.0:*
-  * Basic objects
-     * Board
-     * Holes
-     * Balls
-     * Cue
+  * Basic objects _(done)_
+     * Board _(done)_
+     * Holes _(done)_
+     * Balls _(done)_
+     * Cue _(done)_
+
+*V 0.2.1:*
   * Basic logging
      * Initialisation
      * Video card capabilities

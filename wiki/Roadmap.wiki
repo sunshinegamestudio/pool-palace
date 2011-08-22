@@ -32,6 +32,9 @@ Add your content here.  Format your content with:
      * Holes
      * Balls
      * Cue
+  * Basic logging
+     * Initialisation
+     * Video card capabilities
 
 = V 0.3.x =
 

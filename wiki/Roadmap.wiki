@@ -16,10 +16,10 @@ Add your content here.  Format your content with:
 
 *V 0.1.0:* _(done)_
   * Create community project (GoogleCode) _(done)_
-  * Repository
+  * Repository _(done)_
      * Source code _(done)_
      * Tags _(done)_
-  * Wiki
+  * Wiki _(done)_
      * Roadmap _(done)_
   * Issue tracker _(done)_
   * Releases _(done)_

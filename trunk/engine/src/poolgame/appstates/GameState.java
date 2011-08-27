@@ -44,6 +44,7 @@ import com.jme3.scene.Spatial.CullHint;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
 
+import java.util.ArrayList;
 import java.util.List;
 import poolgame.core.PoolGame;
 import poolgame.entities.*;
@@ -65,7 +66,7 @@ public class GameState extends AbstractAppState implements ActionListener {
     private Room room;
     private Hole hole;
     private Ball ball;
-    private List ballList;
+    private ArrayList ballList;
     //private Terrain_node terrain_node;
     //private CarPlayer player;
     //private SimpleCarPlayer player;
@@ -250,10 +251,16 @@ public class GameState extends AbstractAppState implements ActionListener {
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         hole = new Hole(game.getAssetManager(), rootNode, game.getPhysicsSpace(), 0);
-        Ball ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
+        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
 
         /*
-        ballList.add(ball);
+        Ball ball0 = null;
+        ball0 = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
+        ballList.add(ball0);
+        * 
+        */
+
+        /*
         ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(10, 100, 0));
         ballList.add(ball);
         ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(20, 100, 0));

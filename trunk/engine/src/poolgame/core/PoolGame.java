@@ -77,7 +77,7 @@ public class PoolGame extends Application {
 
     @Override
     public void start(){
-        getLogger().addHandler(fh);
+        //getLogger().addHandler(fh);
         
         // set some default settings in-case
         // settings dialog is not shown

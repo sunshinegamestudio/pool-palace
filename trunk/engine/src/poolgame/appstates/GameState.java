@@ -65,8 +65,9 @@ public class GameState extends AbstractAppState implements ActionListener {
     //private Sky sky;
     private Room room;
     private Hole hole;
-    private Ball ball;
-    private ArrayList ballList;
+    private int ballCountMax = 9;
+    private int ballCount = 2;
+    private Ball[] ballList = new Ball[ballCountMax];
     //private Terrain_node terrain_node;
     //private CarPlayer player;
     //private SimpleCarPlayer player;
@@ -251,14 +252,10 @@ public class GameState extends AbstractAppState implements ActionListener {
         //sky = new Sky(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         room = new Room(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         hole = new Hole(game.getAssetManager(), rootNode, game.getPhysicsSpace(), 0);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
 
-        /*
-        Ball ball0 = null;
-        ball0 = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 100, 0), 0);
-        ballList.add(ball0);
-        * 
-        */
+        for (int b = 0; b<ballCount; b++)   {
+            ballList[b] = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 110+(b*20), 0), b);
+        }
 
         /*
         ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(10, 100, 0));

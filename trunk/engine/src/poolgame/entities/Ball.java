@@ -48,7 +48,6 @@ public class Ball extends Entity {
     private SphereCollisionShape sphereCollisionShape;
     private Spatial ball_geo;
     private Material ball_mat;
-    private Sphere sphere;
     private Camera cam;
 
     public Ball(AssetManager assetManager, Node parent, PhysicsSpace physicsSpace, Camera cam, Vector3f startPos, int index) {
@@ -67,9 +66,6 @@ public class Ball extends Entity {
         
         ball_geo = getParent().getChild("ball_" + index);
         if(ball_geo != null)    {
-            sphere = new Sphere(32, 32, 0.4f, true, false);
-            sphere.setTextureMode(TextureMode.Projected);
-
             ball_mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
             TextureKey key2 = new TextureKey("Textures/ball_0/base.png");
             key2.setGenerateMips(true);
@@ -81,7 +77,7 @@ public class Ball extends Entity {
             ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
             /** Make the ball physcial with a mass > 0.0f */
-            sphereCollisionShape = new SphereCollisionShape(1);
+            sphereCollisionShape = new SphereCollisionShape(0.1f);
             ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
 
             /** Add physical ball to physics space. */

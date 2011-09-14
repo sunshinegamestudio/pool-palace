@@ -128,7 +128,7 @@ public class PoolGame extends Application {
 
         // render states
         stateManager.render(renderManager);
-        renderManager.render(tpf);
+        renderManager.render(tpf, context.isRenderable());
         simpleRender(renderManager);
     }
 

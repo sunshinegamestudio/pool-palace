@@ -20,6 +20,7 @@ package poolgame.entities;
 
 import com.jme3.asset.AssetManager;
 import com.jme3.asset.TextureKey;
+import com.jme3.bounding.BoundingVolume;
 import com.jme3.bullet.PhysicsSpace;
 import com.jme3.math.Vector3f;
 
@@ -77,7 +78,10 @@ public class Ball extends Entity {
             ball_geo.setShadowMode(ShadowMode.CastAndReceive);
 
             /** Make the ball physcial with a mass > 0.0f */
+            BoundingVolume ball_vol = ball_geo.getWorldBound();
+            float distance = ball_vol.getVolume();
             sphereCollisionShape = new SphereCollisionShape(0.1f);
+            //sphereCollisionShape = new SphereCollisionShape(distance);
             ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
 
             /** Add physical ball to physics space. */

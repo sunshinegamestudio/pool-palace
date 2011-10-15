@@ -31,6 +31,7 @@ import com.jme3.renderer.ViewPort;
 import com.jme3.system.AppSettings;
 import com.jme3.system.JmeSystem;
 import com.jme3.system.Timer;
+import java.io.IOException;
 
 import java.util.Collection;
 import java.util.logging.FileHandler;
@@ -52,8 +53,8 @@ public class PoolGame extends Application {
 	private MainMenuState ms = null;
 	private InGameMenuState is = null;
         private BulletAppState bulletAppState = null;
-        private Logger logger = Logger.getLogger(PoolGame.class.getName());
-        //private FileHandler fh = new FileHandler("mylog.txt");
+        private Logger logger;
+        private FileHandler fh;
 
         static PoolGame thisApp;
 	
@@ -77,6 +78,15 @@ public class PoolGame extends Application {
 
     @Override
     public void start(){
+        logger = Logger.getLogger(PoolGame.class.getName());
+        try {
+            fh = new FileHandler("PlatformGame.log");
+        } catch (IOException ex) {
+            Logger.getLogger(PoolGame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(PoolGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         //getLogger().addHandler(fh);
         
         // set some default settings in-case
@@ -90,8 +100,8 @@ public class PoolGame extends Application {
             return;
         }
 
-        //Collection<Caps> caps = renderer.getCaps();
-        //getLogger().log(Level.SEVERE, "Caps: {0}" + caps.toString());
+        Collection<Caps> caps = renderer.getCaps();
+        getLogger().log(Level.SEVERE, "Caps: {0}" + caps.toString());
         
         super.start();
     }

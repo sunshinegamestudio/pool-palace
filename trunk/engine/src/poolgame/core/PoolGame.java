@@ -80,14 +80,15 @@ public class PoolGame extends Application {
     public void start(){
         logger = Logger.getLogger(PoolGame.class.getName());
         try {
-            fh = new FileHandler("PlatformGame.log");
+            fh = new FileHandler("PoolGame_log.xml");
         } catch (IOException ex) {
             Logger.getLogger(PoolGame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SecurityException ex) {
             Logger.getLogger(PoolGame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        logger.setLevel(Level.ALL);
 
-        //getLogger().addHandler(fh);
+        getLogger().addHandler(fh);
         
         // set some default settings in-case
         // settings dialog is not shown
@@ -100,15 +101,17 @@ public class PoolGame extends Application {
             return;
         }
 
-        Collection<Caps> caps = renderer.getCaps();
-        getLogger().log(Level.SEVERE, "Caps: {0}" + caps.toString());
+        //Collection<Caps> caps = renderer.getCaps();
+        //getLogger().log(Level.SEVERE, "Caps: {0}" + caps.toString());
         
         super.start();
     }
 	
 	@Override
     public void initialize() {
-		// initialize the standard environment first
+                getLogger().log(Level.SEVERE, "Start initialization");
+
+                // initialize the standard environment first
 		super.initialize();
 
 		// Create the States

@@ -24,13 +24,13 @@ import com.jme3.scene.control.Control;
 
 public class BallInHoleDetectionControl extends RigidBodyControl implements PhysicsTickListener, PhysicsCollisionListener   {
     
-    private BoxCollisionShape boxCollisionShape;
+    private MeshCollisionShape meshCollisionShape;
     
     public void BallInHoleDetectionControl(Mesh hole)   {
-        boxCollisionShape = new BoxCollisionShape(new Vector3f(1, 1, 1));
+        meshCollisionShape = new MeshCollisionShape();
         
         super.setMass(0);
-        super.setCollisionShape(boxCollisionShape);
+        super.setCollisionShape(meshCollisionShape);
         getPhysicsSpace().addTickListener(this);
         getPhysicsSpace().addCollisionListener(this);
     }

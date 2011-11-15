@@ -2,14 +2,14 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2011-11-13T22:49:04</date>
-  <millis>1321220944254</millis>
-  <sequence>12</sequence>
+  <date>2011-11-15T22:31:40</date>
+  <millis>1321392700433</millis>
+  <sequence>0</sequence>
   <logger>poolgame.core.PoolGame</logger>
   <level>SEVERE</level>
   <class>poolgame.core.PoolGame</class>
-  <method>initialize</method>
-  <thread>11</thread>
-  <message>Start initialization</message>
+  <method>start</method>
+  <thread>10</thread>
+  <message>jME system initialisation error</message>
 </record>
 </log>

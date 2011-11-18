@@ -123,7 +123,7 @@ public class GameState extends AbstractAppState implements ActionListener {
                     { player.down(true);}
                 else
                     { player.down(false);}
-            } else if (name.equals("Jumps")) {
+            } else if (name.equals("Shoots")) {
                 if (value)
                     { player.jump(true);}
                 else
@@ -131,6 +131,11 @@ public class GameState extends AbstractAppState implements ActionListener {
             }
             * Do stick movement ???
             */
+
+            if (name.equals("Shoots")) {
+                if (value)
+                    { ballList[0].shoot();}
+            }
     }
 
     private void setupKeys() {
@@ -138,12 +143,12 @@ public class GameState extends AbstractAppState implements ActionListener {
         game.getInputManager().addMapping("Rights", new KeyTrigger(KeyInput.KEY_RIGHT));
         game.getInputManager().addMapping("Ups",    new KeyTrigger(KeyInput.KEY_UP));
         game.getInputManager().addMapping("Downs",  new KeyTrigger(KeyInput.KEY_DOWN));
-        game.getInputManager().addMapping("Jumps",  new KeyTrigger(KeyInput.KEY_SPACE));
+        game.getInputManager().addMapping("Shoots",  new KeyTrigger(KeyInput.KEY_SPACE));
         game.getInputManager().addListener(this, "Lefts");
         game.getInputManager().addListener(this, "Rights");
         game.getInputManager().addListener(this, "Ups");
         game.getInputManager().addListener(this, "Downs");
-        game.getInputManager().addListener(this, "Jumps");
+        game.getInputManager().addListener(this, "Shoots");
     }
 
     public void loadText(){

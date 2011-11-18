@@ -80,7 +80,8 @@ public class Ball extends Entity {
             /** Make the ball physcial with a mass > 0.0f */
             BoundingVolume ball_vol = ball_geo.getWorldBound();
             float distance = ball_vol.getVolume();
-            sphereCollisionShape = new SphereCollisionShape(0.1f);
+            //sphereCollisionShape = new SphereCollisionShape(0.1f);
+            sphereCollisionShape = new SphereCollisionShape(0.5f);
             //sphereCollisionShape = new SphereCollisionShape(distance);
             ball_phy = new RigidBodyControl(sphereCollisionShape, 1f);
 

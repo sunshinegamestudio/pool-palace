@@ -34,6 +34,7 @@ import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.material.RenderState;
+import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.RenderManager;
@@ -78,6 +79,10 @@ public class GameState extends AbstractAppState implements ActionListener {
     boolean right = false;
     boolean up = false;
     boolean down = false;
+    
+    private Vector3f shootingDirection = new Vector3f(Vector3f.UNIT_Z);
+    private Vector3f camLocation = new Vector3f(Vector3f.ZERO);
+    private Quaternion camRotation = new Quaternion();
     
     private PoolGame game = null;
     
@@ -132,9 +137,21 @@ public class GameState extends AbstractAppState implements ActionListener {
             * Do stick movement ???
             */
 
-            if (name.equals("Shoots")) {
+            if (name.equals("Lefts")) {
                 if (value)
-                    { ballList[0].shoot();}
+                    { shootingDirection.addLocal(0, -10, 0);}
+            } else if (name.equals("Rights")) {
+                if (value)
+                    { shootingDirection.addLocal(0, 10, 0);}
+            } else if (name.equals("Ups")) {
+                if (value)
+                    { shootingDirection.addLocal(10, 0, 0);}
+            } else if (name.equals("Downs")) {
+                if (value)
+                    { shootingDirection.addLocal(-10, 10, 0);}
+            }   else if (name.equals("Shoots")) {
+                if (value)
+                    { ballList[0].shoot(shootingDirection);}
             }
     }
 
@@ -220,6 +237,11 @@ public class GameState extends AbstractAppState implements ActionListener {
         game.getCamera().lookAt(player.getNode().getWorldTranslation(), Vector3f.UNIT_Y);
         * Look behind ball ???
         */
+        
+        camLocation = ballList[0].getSpatial().getLocalTranslation();
+        camRotation = ballList[0].getSpatial().getWorldRotation();
+        game.getCamera().setLocation(camLocation);
+        //game.getCamera().setRotation(camRotation);
     }
     
     

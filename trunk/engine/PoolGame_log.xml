@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2011-11-18T23:38:40</date>
-  <millis>1321655920065</millis>
+  <date>2011-11-19T00:28:03</date>
+  <millis>1321658883081</millis>
   <sequence>12</sequence>
   <logger>poolgame.core.PoolGame</logger>
   <level>SEVERE</level>

@@ -92,9 +92,14 @@ public class Ball extends Entity {
 
     }
     
-    public void shoot() {
+    public void shoot(Vector3f shootingDirection) {
         /** Accelerate the physcial ball to shoot it. */
-        ball_phy.setLinearVelocity(cam.getDirection().mult(25));        
+        //ball_phy.setLinearVelocity(cam.getDirection().mult(25));        
+        ball_phy.setLinearVelocity(shootingDirection);        
+    }
+    
+    public Spatial getSpatial()   {
+        return ball_geo;
     }
 
 }

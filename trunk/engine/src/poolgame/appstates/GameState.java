@@ -247,9 +247,13 @@ public class GameState extends AbstractAppState implements ActionListener {
         Vector3f direction = rot.getRotationColumn(2);
         Vector3f direction2 = rot.getRotationColumn(1);
 
-        float yDirection = direction2.y;
-        float xDirection = direction.x;
-        float zDirection = direction.z;
+        //float yDirection = direction2.y;
+        //float xDirection = direction.x;
+        //float zDirection = direction.z;
+
+        float yDirection = shootingDirection.y;
+        float xDirection = shootingDirection.x;
+        float zDirection = shootingDirection.z;
 
         Vector3f camLocation = new Vector3f(ballList[0].getSpatial().getWorldTranslation().x+(xDirection*10), ballList[0].getSpatial().getWorldTranslation().y+4f, ballList[0].getSpatial().getWorldTranslation().z + (zDirection*10));
 

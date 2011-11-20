@@ -237,11 +237,32 @@ public class GameState extends AbstractAppState implements ActionListener {
         game.getCamera().lookAt(player.getNode().getWorldTranslation(), Vector3f.UNIT_Y);
         * Look behind ball ???
         */
+
+        // Place the camera behind the player
+        //Vector3f direction = player.getNode().getLocalRotation().getRotationColumn(2);
+        //Vector3f direction2 = player.getNode().getLocalRotation().getRotationColumn(1);
         
+        Quaternion rot = new Quaternion(ballList[0].getSpatial().getLocalRotation());
+        //rot.multLocal(shootingDirection);
+        Vector3f direction = rot.getRotationColumn(2);
+        Vector3f direction2 = rot.getRotationColumn(1);
+
+        float yDirection = direction2.y;
+        float xDirection = direction.x;
+        float zDirection = direction.z;
+
+        Vector3f camLocation = new Vector3f(ballList[0].getSpatial().getWorldTranslation().x+(xDirection*10), ballList[0].getSpatial().getWorldTranslation().y+4f, ballList[0].getSpatial().getWorldTranslation().z + (zDirection*10));
+
+        game.getCamera().setLocation(camLocation);
+        game.getCamera().lookAt(ballList[0].getSpatial().getWorldTranslation(), Vector3f.UNIT_Y);
+
+        /*
         camLocation = ballList[0].getSpatial().getLocalTranslation();
         camRotation = ballList[0].getSpatial().getWorldRotation();
         game.getCamera().setLocation(camLocation);
         //game.getCamera().setRotation(camRotation);
+         * 
+         */
     }
     
     

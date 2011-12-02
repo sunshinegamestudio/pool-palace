@@ -34,14 +34,17 @@ import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.material.RenderState;
+import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.queue.RenderQueue.Bucket;
+import com.jme3.scene.CameraNode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial.CullHint;
+import com.jme3.scene.control.CameraControl.ControlDirection;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
 
@@ -61,6 +64,7 @@ public class GameState extends AbstractAppState implements ActionListener {
 
     protected FlyByCamera flyCam;
     // protected ChaseCamera chaseCam;
+    //protected CameraNode chaseCam2;
 
     private Sun sun;
     //private Sky sky;
@@ -139,27 +143,32 @@ public class GameState extends AbstractAppState implements ActionListener {
 
             if (name.equals("Lefts")) {
                 if (value)
-                    { shootingDirection.addLocal(0, -10, 0);}
+                    { shootingDirection.addLocal(0, -2, 0);}
             } else if (name.equals("Rights")) {
                 if (value)
-                    { shootingDirection.addLocal(0, 10, 0);}
-            } else if (name.equals("Ups")) {
-                if (value)
-                    { shootingDirection.addLocal(10, 0, 0);}
-            } else if (name.equals("Downs")) {
-                if (value)
-                    { shootingDirection.addLocal(-10, 10, 0);}
+                    { shootingDirection.addLocal(0, 2, 0);}
             }   else if (name.equals("Shoots")) {
                 if (value)
                     { ballList[0].shoot(shootingDirection);}
             }
+
+            /*
+            } else if (name.equals("Ups")) {
+                if (value)
+                    { shootingDirection.addLocal(2, 0, 0);}
+            } else if (name.equals("Downs")) {
+                if (value)
+                    { shootingDirection.addLocal(-2, 0, 0);}
+             * Temperary disabled.
+             */
+            
     }
 
     private void setupKeys() {
         game.getInputManager().addMapping("Lefts",  new KeyTrigger(KeyInput.KEY_LEFT));
         game.getInputManager().addMapping("Rights", new KeyTrigger(KeyInput.KEY_RIGHT));
-        game.getInputManager().addMapping("Ups",    new KeyTrigger(KeyInput.KEY_UP));
-        game.getInputManager().addMapping("Downs",  new KeyTrigger(KeyInput.KEY_DOWN));
+        //game.getInputManager().addMapping("Ups",    new KeyTrigger(KeyInput.KEY_UP));
+        //game.getInputManager().addMapping("Downs",  new KeyTrigger(KeyInput.KEY_DOWN));
         game.getInputManager().addMapping("Shoots",  new KeyTrigger(KeyInput.KEY_SPACE));
         game.getInputManager().addListener(this, "Lefts");
         game.getInputManager().addListener(this, "Rights");
@@ -222,51 +231,15 @@ public class GameState extends AbstractAppState implements ActionListener {
         rootNode.updateGeometricState();
         guiNode.updateGeometricState();
 
-        // Place the camera behind the player
-        /*
-        Vector3f direction = player.getNode().getLocalRotation().getRotationColumn(2);
-        Vector3f direction2 = player.getNode().getLocalRotation().getRotationColumn(1);
 
-        float yDirection = direction2.y;
-        float xDirection = direction.x;
-        float zDirection = direction.z;
+        //Place the camera behind the ball
+        Quaternion camRotation = new Quaternion();
+        camRotation.fromAngles(shootingDirection.x, shootingDirection.y, shootingDirection.z);
+        //camRotation.lookAt(shootingDirection, Vector3f.UNIT_Y);
 
-        Vector3f camLocation = new Vector3f(player.getNode().getWorldTranslation().x+(xDirection*10), player.getNode().getWorldTranslation().y+4f, player.getNode().getWorldTranslation().z + (zDirection*10));
-
-        game.getCamera().setLocation(camLocation);
-        game.getCamera().lookAt(player.getNode().getWorldTranslation(), Vector3f.UNIT_Y);
-        * Look behind ball ???
-        */
-
-        // Place the camera behind the player
-        //Vector3f direction = player.getNode().getLocalRotation().getRotationColumn(2);
-        //Vector3f direction2 = player.getNode().getLocalRotation().getRotationColumn(1);
-        
-        Quaternion rot = new Quaternion(ballList[0].getSpatial().getLocalRotation());
-        //rot.multLocal(shootingDirection);
-        Vector3f direction = rot.getRotationColumn(2);
-        Vector3f direction2 = rot.getRotationColumn(1);
-
-        //float yDirection = direction2.y;
-        //float xDirection = direction.x;
-        //float zDirection = direction.z;
-
-        float yDirection = shootingDirection.y;
-        float xDirection = shootingDirection.x;
-        float zDirection = shootingDirection.z;
-
-        Vector3f camLocation = new Vector3f(ballList[0].getSpatial().getWorldTranslation().x+(xDirection*10), ballList[0].getSpatial().getWorldTranslation().y+4f, ballList[0].getSpatial().getWorldTranslation().z + (zDirection*10));
-
-        game.getCamera().setLocation(camLocation);
-        game.getCamera().lookAt(ballList[0].getSpatial().getWorldTranslation(), Vector3f.UNIT_Y);
-
-        /*
         camLocation = ballList[0].getSpatial().getLocalTranslation();
-        camRotation = ballList[0].getSpatial().getWorldRotation();
         game.getCamera().setLocation(camLocation);
-        //game.getCamera().setRotation(camRotation);
-         * 
-         */
+        game.getCamera().setRotation(camRotation);
     }
     
     
@@ -278,10 +251,10 @@ public class GameState extends AbstractAppState implements ActionListener {
 
         if (game.getInputManager() != null){
             flyCam = new FlyByCamera(game.getCamera());
-            flyCam.setMoveSpeed(5f);
-            flyCam.registerWithInput(game.getInputManager());
+            //flyCam.setMoveSpeed(5f);
+            //flyCam.registerWithInput(game.getInputManager());
             //chaseCam = new ChaseCamera(game.getCamera(), player.getNode(), game.getInputManager());
-
+            
             game.getInputManager().addMapping("CARGAME_Exit", new KeyTrigger(KeyInput.KEY_ESCAPE));
             game.getInputManager().addMapping("CARGAME_LoadMenu", new KeyTrigger(KeyInput.KEY_M));
         }
@@ -309,25 +282,6 @@ public class GameState extends AbstractAppState implements ActionListener {
             ballList[b] = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), game.getCamera(), new Vector3f(0, 110+(b*20), 0), b);
         }
 
-        /*
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(10, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(20, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(30, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(40, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(50, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(60, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(70, 100, 0));
-        ballList.add(ball);
-        ball = new Ball(game.getAssetManager(), rootNode, game.getPhysicsSpace(), new Vector3f(80, 100, 0));
-        ballList.add(ball);
-        * Fix NullPointerException
-        */
         //terrain_node = new Terrain_node(game.getCamera(), game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new CarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
         //player = new SimpleCarPlayer(game.getAssetManager(), rootNode, game.getPhysicsSpace());
@@ -341,11 +295,27 @@ public class GameState extends AbstractAppState implements ActionListener {
          *
          */
 
+        /*
+        if (game.getInputManager() != null){
+            chaseCam2 = new CameraNode("Camera Node", game.getCamera());
+            //This mode means that camera copies the movements of the target:
+            chaseCam2.setControlDir(ControlDirection.SpatialToCamera);
+            //Move camNode, e.g. behind and above the target:
+            chaseCam2.setLocalTranslation(new Vector3f(0, 5, -5));
+            //Rotate the camNode to look at the target:
+            chaseCam2.lookAt(ballList[0].getSpatial().getLocalTranslation(), Vector3f.UNIT_Y);
+            //Attach the camNode to the target:
+            ballList[0].getNode().attachChild(chaseCam2);            
+        }
+         * 
+         */
+        
         game.getInputManager().addListener(this, "CARGAME_Exit",
                 "CARGAME_LoadMenu");
         
         if(flyCam != null) flyCam.setEnabled(true);
         // if(chaseCam != null) chaseCam.setEnabled(true);
+        // if(chaseCam2 != null) chaseCam2.setEnabled(true);
     	
         game.getViewPort().attachScene(rootNode);
         game.getGUIViewPort().attachScene(guiNode);
@@ -360,6 +330,7 @@ public class GameState extends AbstractAppState implements ActionListener {
     	game.getInputManager().removeListener(this);
         if(flyCam != null) flyCam.setEnabled(false);
         // if(chaseCam != null) chaseCam.setEnabled(false);
+        // if(chaseCam2 != null) chaseCam.setEnabled(false);
     	
         game.getViewPort().detachScene(rootNode);
         game.getGUIViewPort().detachScene(guiNode);

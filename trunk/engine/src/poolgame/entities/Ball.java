@@ -102,4 +102,8 @@ public class Ball extends Entity {
         return ball_geo;
     }
 
+    public Node getNode()   {
+        return (Node)ball_geo;
+    }
+
 }

@@ -12,6 +12,7 @@ import com.jme3.bullet.collision.shapes.BoxCollisionShape;
 import com.jme3.bullet.collision.shapes.MeshCollisionShape;
 import com.jme3.bullet.control.GhostControl;
 import com.jme3.bullet.control.RigidBodyControl;
+import com.jme3.bullet.util.CollisionShapeFactory;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Mesh;
 import com.jme3.scene.control.Control;
@@ -28,6 +29,7 @@ public class BallInHoleDetectionControl extends RigidBodyControl implements Phys
     
     public void BallInHoleDetectionControl(Mesh hole)   {
         meshCollisionShape = new MeshCollisionShape();
+        //meshCollisionShape = CollisionShapeFactory.createMeshShape(super);
         
         super.setMass(0);
         super.setCollisionShape(meshCollisionShape);

@@ -34,6 +34,10 @@ Add your content here.  Format your content with:
      * Cue _(done)_
 
 *V 0.2.1:*
+  * First attempt with Android support
+     * Basic build with no specific Android improvements
+
+*V 0.2.2:*
   * Basic logging
      * Initialisation
      * Video card capabilities

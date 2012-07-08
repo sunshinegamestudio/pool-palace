@@ -33,7 +33,7 @@ Add your content here.  Format your content with:
      * Balls _(done)_
      * Cue _(done)_
 
-*V 0.2.1: (done)*
+*V 0.2.1 (done):*
   * Basic Android support
      * Basic build with no specific Android improvements
 

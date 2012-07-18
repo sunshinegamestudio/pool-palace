@@ -41,12 +41,14 @@ Add your content here.  Format your content with:
   * Basic logging
      * Initialisation
      * Video card capabilities
-  * Basic Android support
-     * Basic build with no specific Android improvements (fix issues with starting)
 
 *V 0.2.3:*
   * Fix the remaining issues
      * The gamestate switching doesn't work correct (ID: sqeeck-save-the-beavies -> 2)
+
+*V 0.2.4:*
+  * Basic Android support
+     * Basic build with no specific Android improvements (fix issues with starting)
 
 = V 0.3.x =
 

@@ -100,9 +100,6 @@ public class PoolGame extends Application {
             getLogger().log(Level.SEVERE, "jME system initialisation error");
             return;
         }
-
-        //Collection<Caps> caps = renderer.getCaps();
-        //getLogger().log(Level.SEVERE, "Caps: {0}" + caps.toString());
         
         super.start();
     }
@@ -113,6 +110,10 @@ public class PoolGame extends Application {
 
                 // initialize the standard environment first
 		super.initialize();
+
+                // Get renderer capabilities
+                Collection<Caps> caps = renderer.getCaps();
+                getLogger().log(Level.SEVERE, "Renderer capabilities {0}: " + caps.toString());
 
 		// Create the States
                 bulletAppState = new BulletAppState();

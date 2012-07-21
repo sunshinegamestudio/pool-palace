@@ -50,6 +50,8 @@ import com.jme3.texture.Texture;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+
 import poolgame.core.PoolGame;
 import poolgame.entities.*;
 
@@ -92,6 +94,8 @@ public class GameState extends AbstractAppState implements ActionListener {
     
     public GameState(PoolGame game) {
     	this.game = game;
+
+        this.game.getLogger().log(Level.SEVERE, "GameState created.");
     }
     
     public void startNewGame()  {
@@ -319,6 +323,8 @@ public class GameState extends AbstractAppState implements ActionListener {
     	
         game.getViewPort().attachScene(rootNode);
         game.getGUIViewPort().attachScene(guiNode);
+
+        this.game.getLogger().log(Level.SEVERE, "GameState attached.");
     }
 
     @Override
@@ -334,6 +340,8 @@ public class GameState extends AbstractAppState implements ActionListener {
     	
         game.getViewPort().detachScene(rootNode);
         game.getGUIViewPort().detachScene(guiNode);
+
+        this.game.getLogger().log(Level.SEVERE, "GameState detached.");
     }
 
     @Override

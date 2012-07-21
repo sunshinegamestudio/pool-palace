@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2012-07-19T23:14:44</date>
-  <millis>1342732484511</millis>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557419</millis>
   <sequence>12</sequence>
   <logger>poolgame.core.PoolGame</logger>
   <level>SEVERE</level>
@@ -13,8 +13,8 @@
   <message>Start initialization</message>
 </record>
 <record>
-  <date>2012-07-19T23:14:44</date>
-  <millis>1342732484644</millis>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557655</millis>
   <sequence>22</sequence>
   <logger>poolgame.core.PoolGame</logger>
   <level>SEVERE</level>
@@ -22,5 +22,60 @@
   <method>initialize</method>
   <thread>11</thread>
   <message>Renderer capabilities {0}: [FrameBuffer, FrameBufferMRT, FrameBufferMultisample, TextureMultisample, OpenGL20, OpenGL21, OpenGL30, OpenGL31, OpenGL32, ARBprogram, GLSL100, GLSL110, GLSL120, GLSL130, GLSL140, GLSL150, VertexTextureFetch, TextureArray, TextureBuffer, FloatTexture, FloatColorBuffer, FloatDepthBuffer, PackedFloatTexture, SharedExponentTexture, PackedFloatColorBuffer, TextureCompressionLATC, NonPowerOfTwoTextures, MeshInstancing, VertexBufferArray, PackedDepthStencilBuffer]</message>
+</record>
+<record>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557666</millis>
+  <sequence>23</sequence>
+  <logger>poolgame.core.PoolGame</logger>
+  <level>SEVERE</level>
+  <class>poolgame.appstates.MainMenuState</class>
+  <method>&lt;init&gt;</method>
+  <thread>11</thread>
+  <message>MainMenuState created.</message>
+</record>
+<record>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557669</millis>
+  <sequence>24</sequence>
+  <logger>poolgame.core.PoolGame</logger>
+  <level>SEVERE</level>
+  <class>poolgame.appstates.GameState</class>
+  <method>&lt;init&gt;</method>
+  <thread>11</thread>
+  <message>GameState created.</message>
+</record>
+<record>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557670</millis>
+  <sequence>25</sequence>
+  <logger>poolgame.core.PoolGame</logger>
+  <level>SEVERE</level>
+  <class>poolgame.appstates.InGameMenuState</class>
+  <method>&lt;init&gt;</method>
+  <thread>11</thread>
+  <message>InGameMenuState created.</message>
+</record>
+<record>
+  <date>2012-07-21T23:35:57</date>
+  <millis>1342906557772</millis>
+  <sequence>26</sequence>
+  <logger>poolgame.core.PoolGame</logger>
+  <level>SEVERE</level>
+  <class>poolgame.appstates.MainMenuState</class>
+  <method>stateAttached</method>
+  <thread>11</thread>
+  <message>MainMenuState attached.</message>
+</record>
+<record>
+  <date>2012-07-21T23:36:00</date>
+  <millis>1342906560879</millis>
+  <sequence>158</sequence>
+  <logger>poolgame.core.PoolGame</logger>
+  <level>SEVERE</level>
+  <class>poolgame.appstates.MainMenuState</class>
+  <method>stateDetached</method>
+  <thread>11</thread>
+  <message>MainMenuState detached.</message>
 </record>
 </log>

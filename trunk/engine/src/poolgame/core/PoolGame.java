@@ -31,12 +31,13 @@ import com.jme3.renderer.ViewPort;
 import com.jme3.system.AppSettings;
 import com.jme3.system.JmeSystem;
 import com.jme3.system.Timer;
-import java.io.IOException;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import poolgame.appstates.MainMenuState;
 import poolgame.appstates.InGameMenuState;
 import poolgame.appstates.GameState;

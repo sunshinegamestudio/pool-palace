@@ -38,10 +38,11 @@ Add your content here.  Format your content with:
      * Basic build with no specific Android improvements
 
 *V 0.2.2:*
-  * Basic logging _(done)_
-     * Initialisation
-     * Video card capabilities
-  * Fix the remaining issues
+  * Basic logging
+     * Initialisation _(done)_
+     * Video card capabilities _(done)_
+     * AppState creation/attatching/detachting
+  * Fix the remaining issues _(done)_
      * The gamestate switching doesn't work correct (ID: sqeeck-save-the-beavies -> 2)
 
 *V 0.2.3:*

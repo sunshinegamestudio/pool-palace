@@ -1,0 +1,75 @@
+# Introduction #
+
+This is the roadmap for Pool Palace.
+
+
+# Details #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+# V 0.1.x #
+
+**V 0.1.0:** _(done)_
+  * Create community project (GoogleCode) _(done)_
+  * Repository _(done)_
+    * Source code _(done)_
+    * Tags _(done)_
+  * Wiki _(done)_
+    * Roadmap _(done)_
+  * Issue tracker _(done)_
+  * Releases _(done)_
+
+# V 0.2.x #
+
+**V 0.2.0 (done):**
+  * Basic objects _(done)_
+    * Board _(done)_
+    * Holes _(done)_
+    * Balls _(done)_
+    * Cue _(done)_
+
+**V 0.2.1 (done):**
+  * Basic Android support
+    * Basic build with no specific Android improvements
+
+**V 0.2.2:**
+  * Basic logging
+    * Initialisation _(done)_
+    * Video card capabilities _(done)_
+    * AppState creation/attaching/detachting
+  * Fix the remaining issues _(done)_
+    * The gamestate switching doesn't work correct (ID: sqeeck-save-the-beavies -> 2)
+
+**V 0.2.3:**
+  * Fix the remaining issues
+
+**V 0.2.4:**
+  * Basic Android support
+    * Basic build with no specific Android improvements (fix issues with starting)
+
+# V 0.3.x #
+
+**V 0.3.0:**
+  * Basic shooting
+
+# V 0.4.x #
+
+**V 0.4.0:**
+  * Detailed hole object
+  * Basic ball/hole detection
+
+# V 0.5.x #
+
+**V 0.5.0:**
+  * Basic menu's
+
+# V 0.6.x #
+
+**V 0.6.0:**
+  * Basic game logic
+
+
+The content of the releases are subject to change and can be changed without notice.
